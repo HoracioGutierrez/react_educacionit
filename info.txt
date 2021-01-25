@@ -1,0 +1,24 @@
+https://reactjs.org/docs/react-component.html
+
+
+
+const obj = {x:1,y:2,z:3}
+
+const {x:x,y:y,z:z} = obj
+const {x,y,z} = obj
+
+//const x = obj.x
+//const y = obj.y
+//const z = obj.z
+
+
+
+
+
+const arr = [1,2,3]
+
+const [uno,dos,tres] = arr
+
+//const uno = arr[0]
+//const dos = arr[1]
+//const tres = arr[2]

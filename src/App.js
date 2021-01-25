@@ -1,25 +1,48 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react"
+import Header from "./Header"
+import Main from "./Main"
+import Footer from "./Footer"
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+
+    constructor(){
+        super()
+        this.state = {
+            titulo : "Mi Primer App - state",
+            cantidad : 0,
+            vive : true
+        }
+    }
+
+    cambiarUsuario = () => {
+        console.log("Soy App") 
+    }    
+
+
+    render(){
+
+        const {titulo,cantidad,vive} = this.state
+
+        return (
+            <>
+                {/* Header(1,2,3) */}
+                <Header 
+                    titulo={titulo}
+                    cantida={cantidad} 
+                    vive={vive}
+                    cambiarUsuario={this.cambiarUsuario}
+                />
+                <Main/>
+                <Footer/>
+            </>
+        )
+    }
 }
 
-export default App;
+
+//CommonJS
+//module.exports = App
+
+//ES6
+export default App
+
