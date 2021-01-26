@@ -1,5 +1,6 @@
 https://reactjs.org/docs/react-component.html
-
+https://www.youtube.com/watch?v=PMfcsYzj-9M&t=1396s&ab_channel=JamesShore
+https://github.com/HoracioGutierrez/jsinheritance/blob/master/translations/README.es.md
 
 
 const obj = {x:1,y:2,z:3}
@@ -22,3 +23,20 @@ const [uno,dos,tres] = arr
 //const uno = arr[0]
 //const dos = arr[1]
 //const tres = arr[2]
+
+
+const arr = [1,2,3]
+
+for(let i = 0; i < arr.length ; i++){
+    let elemento = arr[i]
+}
+
+const resultado = arr.forEach((elemento,indice)=>{})
+
+const resultado = arr.map((elemento,indice)=>{})
+
+
+arr.filter()
+arr.reduce()
+arr.sort()
+arr.find()

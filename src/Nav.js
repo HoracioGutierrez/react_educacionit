@@ -2,11 +2,14 @@ import React, { Component } from 'react'
 
 export class Nav extends Component {
     render() {
+        
+        const {links} = this.props
+
         return (
             <nav>
-                <a href="#">link</a>
-                <a href="#">link</a>
-                <a href="#">link</a>
+                {links.map((link)=>{
+                    return <a key={link} href={link}>{link}</a>
+                })}
             </nav>
         )
     }
