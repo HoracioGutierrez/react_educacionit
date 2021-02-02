@@ -7,75 +7,19 @@
 </head>
 <body>
 
-    <button onclick="console.log()">click</button>
+    <input type="text" placeholder="Nombre" id="nombre">
+    <button>Guardar!</button>
 
-<script>
+    <script>
 
-    const btn = document.querySelector('button')
-
-    btn.addEventListener("click",()=>{
-        console.log("click")
-    })
-
-//Contexto : Es el objeto que contiene a la misma funcion
-
-/*
-window.foo = function(){}
-
-var foo = function(){}
-*/
-
-
-/* 
-function foo(){
-    console.log(this)
-}
-
-foo()
- */
-
-
-/* 
-const obj = {
-    x : 1,
-    fn : function(){
+        const input = document.getElementById("nombre")
         
-        console.log(this) //obj {}
+        input.addEventListener("keyup",(e)=>{
+            console.log(input)
+            console.log(e.target)
+            console.log("Se apreto una tecla")
+        })
 
-        setTimeout(()=>{
-            console.log(this) //obj {}
-        },0)
-        //const self = this
-        setTimeout(function(){
-            console.log(this) //window{}
-        },0)
-
-        setTimeout(function(){
-            console.log(self) 
-        },0)
-
-        
-    }
-}
-
-obj.fn() */
-
-
-function foo(){
-    console.log(this)
-}
-
-//bind - call - apply
-
-foo()
-//new foo
-//foo.call("Hola")
-//foo.apply("Chau")
-
-const copia = foo.bind("bind")
-
-
-
-</script>
+    </script>
 </body>
 </html>

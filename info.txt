@@ -1,6 +1,10 @@
 https://reactjs.org/docs/react-component.html
 https://www.youtube.com/watch?v=PMfcsYzj-9M&t=1396s&ab_channel=JamesShore
 https://github.com/HoracioGutierrez/jsinheritance/blob/master/translations/README.es.md
+https://reactjs.org/docs/events.html
+https://reactrouter.com/web/guides/quick-start
+
+
 
 
 const obj = {x:1,y:2,z:3}
@@ -40,3 +44,56 @@ arr.filter()
 arr.reduce()
 arr.sort()
 arr.find()
+
+
+
+OPERADOR REST/SPREAD (...)
+
+
+//REST
+function foo(...parametros){
+    console.log(parametros) //[1,2,3,"hola"]
+}
+
+foo(1,2,3,"hola")
+
+
+
+//SPREAD
+const arr = [1,2,3,4]
+
+const copia = [arr[0],arr[1],arr[2],arr[3]]
+const copia = [...arr]
+
+
+
+
+REACT-ROUTER-DOM : Es una libreria que nos da componentes con funcionalidades ya hechas para usar PERO toda la aplicacion tiene que estar adentro de un Router
+
+BrowserRouter : Usa la API History
+HashRouter : Usa location.hash
+MemoryRouter : Entornos que no sean navegador
+StaticRouter : Entorno Back-End(Servidor/SSR)
+
+
+
+ {/* <form onSubmit={this.manejarElSubmit}>
+                    <div>
+                        <input type="text" value={nombre} onChange={this.cambiaElInput}/>
+                    </div>
+                    <div>
+                        <textarea value={comentario} onChange={this.cambiaElTextarea}></textarea>
+                    </div>
+                    <button>Agregar</button>
+                </form> */}
+                {/* comentarios.map((comentario)=>{
+                    return (
+                        <div key={comentario.nombre}>
+                            <p><strong>{comentario.nombre}</strong>:{comentario.comentario}</p>
+                        </div>
+                    )
+                }) */}
+               {/*  <p>El contador va : {cantidad}</p>
+                <button onClick={this.sumarCantidad}>+</button>
+                <button onClick={this.resetearCantidad}>resetear</button>
+                <button onClick={this.restarCantidad}>-</button> */}

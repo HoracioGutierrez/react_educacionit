@@ -1,33 +1,22 @@
 import React from "react"
 import Nav from "./Nav"
+import {Link} from "react-router-dom"
 
 class Header extends React.Component {
     
     render(){
 
-        const {titulo,cantidad,links} = this.props
+        const {titulo,links} = this.props
 
         return(
             <header>
-                <h1>{titulo}</h1>
-                <p>{cantidad}</p>
+                <Link to="/">
+                    <h1>{titulo}</h1>
+                </Link>
                 <Nav links={links}/>
             </header>
         )
     }
 }
 
-
-
-/* const Header = (props) => {
-
-    return(
-        <header>
-            <h1>{props.titulo}</h1>
-            <p>{props.cantida}</p>
-            <Nav/>
-        </header>
-    )
-}
- */
 export default Header

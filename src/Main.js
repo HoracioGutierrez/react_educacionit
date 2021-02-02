@@ -1,63 +1,31 @@
 import React from "react"
-
-
-const Seccion = ({titulo,children}) => {
-
-    /* let titulo = props.titulo
-    titulo = "Titulo Customizado" */
-
-    return (
-        <section className="pagina">
-            <header>
-                <h3>{titulo}</h3>
-            </header>
-            {children}
-        </section>
-    )
-}
-
-const Pagina3 = () => {
-    return (
-        <Seccion titulo="Pagina 3">
-            <button>Guardar</button>
-        </Seccion>        
-    )
-}
-
-const Pagina2 = () => {
-    return (
-        <Seccion titulo="Pagina 2">
-            <ul>
-                <li>item 1</li>
-                <li>item 2</li>
-            </ul>
-        </Seccion>
-    )
-}
-
-const Pagina1 = () => {
-    return (
-        <>
-            <Seccion titulo="Pagina 1">
-                <p>Lorem Ipsum</p>
-            </Seccion>
-        </>
-    )
-}
-
+import {Route,Switch} from "react-router-dom"
+import Home from "./Home"
+import Productos from "./Productos"
+import Mensajes from "./Mensajes"
+import Perfil from "./Perfil"
 
 class Main extends React.Component {
     render(){
         return(
             <main>
-                <h2>Home</h2>
+                <Switch>
+                    <Route path="/" exact>
+                        <Home/>
+                    </Route>
 
-                <Pagina1/>
+                    <Route path="/productos">
+                        <Productos/>
+                    </Route>
 
-                <Pagina2/>
+                    <Route path="/perfil">
+                        <Perfil/>
+                    </Route>
 
-                <Pagina3/>
-
+                    <Route path="/mensajes">
+                        <Mensajes/>
+                    </Route>
+                </Switch>
             </main>
         )
     }
