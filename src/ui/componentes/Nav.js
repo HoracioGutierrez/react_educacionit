@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import {Link,NavLink} from "react-router-dom"
+import {NavLink} from "react-router-dom"
+import {connect} from "react-redux"
 
 export class Nav extends Component {
     render() {
@@ -16,4 +17,12 @@ export class Nav extends Component {
     }
 }
 
-export default Nav
+
+const mapStateToProps = (store) => {
+    return {
+        links : store.links
+    }
+}
+
+
+export default connect(mapStateToProps)(Nav)

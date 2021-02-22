@@ -1,9 +1,9 @@
 import React from "react"
 import {Route,Switch} from "react-router-dom"
-import Home from "./Home"
-import Productos from "./Productos"
-import Mensajes from "./Mensajes"
-import Perfil from "./Perfil"
+import Home from "../paginas/Home"
+import Productos from "../paginas/Productos"
+import Mensajes from "../paginas/Mensajes"
+import Perfil from "../paginas/Perfil"
 
 class Main extends React.Component {
     render(){
