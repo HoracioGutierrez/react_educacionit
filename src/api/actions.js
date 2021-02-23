@@ -1,7 +1,3 @@
-/* const EjemploAction = () => {
-    return {type:""}
-} */
-
 export const cambiarTitulo = (valor) => {
     return {type:"TITULO_CAMBIAR",valor}
 }

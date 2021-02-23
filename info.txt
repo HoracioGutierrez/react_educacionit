@@ -118,3 +118,20 @@ REACT-REDUX
 
 Provider : Es un componente que usa el patro de children y sirve para alimentar a la aplicacion del store
 connect : Es un componente HoC que sirve para conectar un componente con el store
+
+
+
+HOOKS
+
+
+useState()
+useReducer()
+useEffect()
+useContext()
+useMemo()
+useCallback()
+useRef()
+
+
+useSelector() : Es un hook que me permite leer del store
+useDispatch() : Es un hook que me permite acceder a la funcion de dispatch

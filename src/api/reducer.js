@@ -2,7 +2,8 @@ const init = {
     links : ["productos","mensajes","perfil"],
     productos : [],
     titulo : "",
-    precio : ""
+    precio : "",
+    titulo_principal : "Mi Primera App"
 }
 
 const reducer = (store=init,action) => {

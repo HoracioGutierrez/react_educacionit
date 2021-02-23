@@ -1,59 +1,71 @@
-import React from "react"
-import {connect} from "react-redux"
+import {useEffect} from "react"
+//import {connect} from "react-redux"
+import {useSelector,useDispatch} from "react-redux"
 import {agregarProducto,cambiarPrecio,cambiarTitulo} from "../../api/actions"
+//import {bindActionCreators} from "redux"
 
-class Productos extends React.Component {
+const Productos = ({agregarProducto,cambiarPrecio,cambiarTitulo}) => {
 
-    manejarCambioTitulo = (e) => {
-        this.props.cambiarTitulo(e.target.value)
+    const productos = useSelector(({productos})=>productos)
+    const titulo = useSelector(({titulo})=>titulo)
+    const precio = useSelector(({precio})=>precio)
+    const dispatch = useDispatch()
+
+    const manejarCambioTitulo = e => {
+        //cambiarTitulo(e.target.value)
+        dispatch({type:"TITULO_CAMBIAR",valor:e.target.value})
     }
 
-    manejarCambioPrecio = (e) => {
-        this.props.cambiarPrecio(e.target.value)
+    const manejarCambioPrecio = e => {
+        //cambiarPrecio(e.target.value)
+        dispatch({type:"PRECIO_CAMBIAR",valor:e.target.value})
     }
 
-    manejarSubmit = (e) => {
+    const manejarSubmit = e => {
         e.preventDefault()
-        this.props.agregarProducto(this.props.titulo,this.props.precio)
+        //agregarProducto(titulo,precio)
+        dispatch({type:"PRODUCTO_AGREGAR",titulo,precio})
     }
 
-    render(){
-        return(
-            <>
-                <h2>Productos</h2>
-                <form onSubmit={this.manejarSubmit}>
-                    <div>
-                        <input onChange={this.manejarCambioTitulo} type="text" placeholder="Ingrese Titulo..." value={this.props.titulo}/>
-                    </div>
-                    <div>
-                        <input onChange={this.manejarCambioPrecio} type="number" placeholder="Ingrese Precio..." value={this.props.precio}/>
-                    </div>
-                    <button>agregar</button>
-                </form>
-                <ul>
-                    {this.props.productos.length > 0
-                    ? this.props.productos.map((producto)=>{
-                        return <li key={producto.id}>{producto.titulo} ${producto.precio}</li>
-                    })
-                    : <li>No hay productos</li> }
-                </ul>
-            </>
-        )
-    }
-}
+    return (
+        <>
+            <h2>Productos</h2>
+            <form onSubmit={manejarSubmit}>
+                <div>
+                    <input onChange={manejarCambioTitulo} type="text" placeholder="Ingrese Titulo..." value={titulo}/>
+                </div>
+                <div>
+                    <input onChange={manejarCambioPrecio} type="number" placeholder="Ingrese Precio..." value={precio}/>
+                </div>
+                <button>agregar</button>
+            </form>
+            <ul>
+                {productos.length > 0
+                ? productos.map((producto)=>{
+                    return <li key={producto.id}>{producto.titulo} ${producto.precio}</li>
+                })
+                : <li>No hay productos</li> }
+            </ul>
+        </>
+    )
+} 
 
-const mapStateToProps = (store) => {
+export default Productos
+
+
+
+
+//const mapDispatchToProps = { agregarProducto, cambiarPrecio, cambiarTitulo }
+
+/* const mapDispatchToProps = (dispatch) => {
     return {
-        productos : store.productos,
-        titulo : store.titulo,
-        precio : store.precio
+        agregarProducto : bindActionCreators(agregarProducto,dispatch),
+        cambiarPrecio : bindActionCreators(cambiarPrecio,dispatch),
+        cambiarTitulo : bindActionCreators(cambiarTitulo,dispatch)
     }
-}
+} */
 
-const mapDispatchToProps = {
-    agregarProducto,
-    cambiarPrecio,
-    cambiarTitulo
-}
-
-export default connect(mapStateToProps,mapDispatchToProps)(Productos)
+/* export default connect(
+    ({productos,titulo,precio}) => ({ productos , titulo , precio }),
+    { agregarProducto, cambiarPrecio, cambiarTitulo }    
+)(Productos) */
